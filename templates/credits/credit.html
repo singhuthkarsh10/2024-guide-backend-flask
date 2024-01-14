@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/bd2255194d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" text="text/css" href="{% static 'css/credit.css' %}">
+  <link rel = "icon" href = "{% static 'img/logo.jpg' %}" type = "image/x-icon">
+  <title>CREDITS</title>
+  </head>
+  <body>
+    <nav id="menu">
+      <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+      </ul>
+    </nav>
+    <form class="bluebox">
+      <!--<fieldset>--> 
+      <h2 id="dev"> DEVELOPED BY:</h2>
+      <br>
+
+      <div class="row" style="margin-left: 5rem;">
+        {% for credit in credits %}
+          <div class="column">
+            <div class="card">
+              <img src="{{ credit.img.url }}" alt="HARIARAN B P" style="width:100%">
+              <div class="container">
+                <h2>{{ credit.name }}</h2>
+                <p class="title">{{ credit.role }}r</p>
+                <p>
+                  <button class="button">Contact</button>
+                </p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <!--</fieldset>-->
+    </form>
+
+    {% include 'partials/_footer.html' %}
+
+  </body>
+</html>
